@@ -1,22 +1,46 @@
 package com.example.parking_tp3
 
+import android.os.Binder
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.parking_tp3.databinding.ActivityMainBinding
+import com.example.parking_tp3.databinding.FragmentHomeBinding
 
-class MainActivity : AppCompatActivity() {
-    lateinit var navController: NavController
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val navHostFragment = supportFragmentManager. findFragmentById(R.id.navHost) as NavHostFragment
-        navController = navHostFragment.navController
+class HomeFragment : Fragment() {
+    lateinit var adapter:ParkingAdapter
+    lateinit var recyclerView: RecyclerView
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view:View=inflater.inflate(R.layout.fragment_home, container, false)
+        val parkings=loadData()
+        recyclerView=view.findViewById(R.id.recycleParking)
+        adapter=ParkingAdapter(this,parkings)
+        val layoutManager= LinearLayoutManager(getContext())
+        recyclerView.layoutManager=layoutManager
+        recyclerView.adapter=adapter
+        return view
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val button:Button=view.findViewById(R.id.button2)
+        button.setOnClickListener {
+            view.findNavController().navigate(R.id.action_homeFragment_to_detailsParkingFragment)
+        }
+
+    }
+
     fun loadData():List<Parking>{
         var parkings=mutableListOf<Parking>()
         var noms=getResources().getStringArray(R.array.noms)

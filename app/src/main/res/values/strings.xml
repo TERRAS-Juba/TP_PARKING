@@ -41,7 +41,7 @@
         <item>30</item>
         <item>14</item>
         <item>15</item>
-   </string-array>
+    </string-array>
     <string-array name="longitudes">
         <item>3.9565529</item>
         <item>3.9565529</item>
@@ -84,4 +84,6 @@
         <item>21:00</item>
         <item>22:00</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

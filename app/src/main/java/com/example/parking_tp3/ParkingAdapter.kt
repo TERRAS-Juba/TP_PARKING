@@ -9,12 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.RecyclerView
 
-class ParkingAdapter(var context: Context, var parkings: List<Parking>) :
+class ParkingAdapter(var context: Fragment, var parkings: List<Parking>) :
     RecyclerView.Adapter<ParkingAdapter.ParkingHolder>() {
-
     class ParkingHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val imageParking: ImageView = itemView.findViewById(R.id.imageParking)
         val nomParking: TextView = itemView.findViewById(R.id.nomParking)
@@ -47,15 +51,8 @@ class ParkingAdapter(var context: Context, var parkings: List<Parking>) :
         holder.distanceParking.text = parking.distance.plus(" Km ")
         holder.distanceParking.setTextColor(Color.parseColor("#0080ff"))
         holder.dureeParking.text = parking.duree.plus(" min ")
-        //Changer les données
-        // parking[position]=""
-        //notifyDataSetChanged()
-        holder.itemView.setOnClickListener({
-            var intent = Intent(context, DetailsPaking::class.java)
-            intent.putExtra("current",parkings[position])
-            context.startActivity(intent)
-        })
     }
+
 
     override fun getItemCount(): Int {
         return parkings.size
