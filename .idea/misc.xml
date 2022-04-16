@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidProjects/Parking_TP3/app/src/main/res/drawable/circular_button.xml" value="0.2675" />
+        <entry key="..\:/AndroidProjects/Parking_TP3/app/src/main/res/drawable/custom_card.xml" value="0.184" />
+        <entry key="..\:/AndroidProjects/Parking_TP3/app/src/main/res/layout/activity_details_paking.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/Parking_TP3/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidProjects/Parking_TP3/app/src/main/res/layout/card_parking.xml" value="0.5" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
